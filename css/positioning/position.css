@@ -1,0 +1,34 @@
+body {
+	margin: 0 50%;
+
+}
+
+
+#al {
+	position: absolute;
+	top: 100px;
+	z-index: 0;
+	color: purple;
+}
+
+#hat {
+	position: relative;
+	top: -30px;
+	left: -15px;
+	z-index: 1;
+}
+
+#logo {
+	position: relative;
+	top: -180px;
+	left: 90px;
+	z-index: 2;
+}	
+
+#glasses {
+	position: relative;
+	top: 198px;
+	left: 42px;
+	transform: rotate(-2deg) scaleY(1.1);
+	z-index: 1;
+}
