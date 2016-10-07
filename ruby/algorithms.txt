@@ -1,0 +1,18 @@
+Release zero
+
+- Ask me which floor to go to:
+	If response is an integer, log response
+	otherwise, ask for a specific floor number.
+- navigate to the elevor lobby.
+- locate elevator call button:
+	If it active, wait for elevator for open and somersault inside.
+	if it is inactive, press call button and wait for the elevator to arrive and open it's doors. Then, cartwheel inside.
+- Turn to face the elevator doors and locate the floor buttons:
+	Turn 30* to the right and check for floor buttons.
+	if not there, reset position and turn 30* to the left to check for floor buttons.
+	/* If floor buttons cannot be located, enter gyration mode, sounding off "Error! Error! Error!" until someone comes and locates the buttons for you. */
+- Identify the floor button corresponding to the integer indicated by me.
+	If floor button cannot be found, make a list of all floor integers and come back to see me.
+- Press corresponding floor button and wait for doors to close. 
+	When the pressed floor button's light turns off or when the indicated floor is highlighted on the elevator display, prepare to depart elevator.	
+- When doors opens, exit the elevator /* and get me a sandwich. */	
