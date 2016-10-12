@@ -64,5 +64,5 @@ until allergy=="done"
 	end	
 p "Actually, never mind! What do these questions have to do with anything? Let's all be friends." # -_-
 end	
-
+ 
 # I'm unhappy with this code. It's pretty breakable and I had trouble getting to it to only accept valid responses. 
