@@ -13,4 +13,18 @@ end
 index_finder(arr, 45)
 #need it to output nil if x doesn't exist in arr.
 
-# def fib(x)
+def fib(x)
+	arr = [0, 1]
+	while arr.length < x
+	if arr.length > 3		# I'll be damned if arr[3] is going to spoil my quick code >:O
+		arr[3] = 2
+	end
+	num1 = arr.index(arr.last)
+	num2 = arr.index(arr.last)-1
+	next_value = arr[num1]+arr[num2]
+	arr << next_value
+  	end
+p arr[x-1]
+end
+
+fib(50)
