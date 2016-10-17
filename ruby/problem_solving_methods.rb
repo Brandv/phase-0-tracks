@@ -13,9 +13,9 @@ end
 index_finder(arr, 45)
 #need it to output nil if x doesn't exist in arr.
 
-def fib(x)
+def fibonacci(index)
 	arr = [0, 1]
-	while arr.length < x
+	while arr.length < index
 	if arr.length > 3		# I'll be damned if arr[3] is going to spoil my quick code >:O
 		arr[3] = 2
 	end
@@ -24,7 +24,14 @@ def fib(x)
 	next_value = arr[num1]+arr[num2]
 	arr << next_value
   	end
-p arr[x-1]
+p arr[index-1]
 end
 
-fib(50)
+fibonacci(50)
+
+#~QuickSort~ # I give up, too hard to write :() 
+
+#bubble sort
+# take highest index value. that's the pivot.
+# Take the first value and the value index-1 of pivot
+# if any value is lower than pivot, move to the left.
