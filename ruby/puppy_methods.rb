@@ -1,7 +1,8 @@
-class Puppy
+#sorry, puppies are great but I also like spiders.
+class Spider
 
-  def fetch(toy)
-    puts "I brought back the #{toy}!"
+  def weave(type)
+    puts "I wove a #{type} web!"
     toy
   end
 
