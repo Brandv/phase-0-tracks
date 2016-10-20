@@ -35,10 +35,10 @@ end
 
 shopping_list = create_list("lemonade tomatoes onions ice-cream")
 p add_item(shopping_list, "lemonade", 2)
-p add_item(shopping_list, "tomatoes", 3)
-p add_item(shopping_list, "ice-cream", 4)
-p remove_item(shopping_list, "lemonade") 
-p update_quantity(shopping_list, "ice-cream", 1)
+# p add_item(shopping_list, "tomatoes", 3)
+# p add_item(shopping_list, "ice-cream", 4)
+# p remove_item(shopping_list, "lemonade") 
+# p update_quantity(shopping_list, "ice-cream", 1)
 print_list(shopping_list)
 
 # new_hash = list("carrots broccoli peas")
