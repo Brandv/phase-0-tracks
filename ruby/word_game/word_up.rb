@@ -11,11 +11,12 @@
 # Add method to create new 'guess' string. 
 # Add method to display "_" in place of chosen string letters.
 # The 'guess' string will consist of a "_ " character for each length of each 'character' array. There will be a 'guess' string for each value in the 'word' array. [if multiple same letter, write method to change 'character' array for that letter to "_" or something so it won't only match that first matching letter.]
-
 # Add method to prompt the code_breaker (word guesser) to guess a letter. 
 
-#really struggled with this one. Couldn't change each value in a hash.
 
+
+
+#really struggled with this one. Couldn't change each value in a hash. Going to read review and visit office hours to get past my hurdles.
 class Word_up
 	#require 'io/console'
 	attr_reader :secret_choice, :category, :words, :characters
@@ -24,15 +25,14 @@ class Word_up
 		puts "Keeper of Secrets, choose your domain of an Animal, World Capital, or Stanley Kubrick movie after the 1990"
 		@category = gets.chomp.downcase
 		puts "Keeper of Secrets, tell me your secret #{@category}."
-		@secret_choice = gets.chomp.downcase #STDIN.noecho(&:gets).chomp.downcase
+		@secret_choice = STDIN.noecho(&:gets).chomp.downcase
 		@guess_count  = 0
 		@characters = {}
 	end
 	
 	def secret_choice_splitter
 		@words = @secret_choice.split(" ")
-		
-	end
+		end
 
 	def words_splitter
 		word_count = @words.length
@@ -52,11 +52,11 @@ class Word_up
 	
 end
 
-trial = Word_up.new 
+new_word = Word_up.new 
 #p trial
-trial.secret_choice_splitter
-trial.words_splitter
-trial.display
+new_word.secret_choice_splitter
+new_word.words_splitter
+new_word.display
 
 
 
