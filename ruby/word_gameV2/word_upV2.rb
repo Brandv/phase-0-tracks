@@ -53,14 +53,14 @@ class Word_up
 		@secret = gets.chomp.downcase #STDIN.noecho(&:gets).chomp.downcase
 	#	@guess_count = 0
 	end
-
-	# def word_splitter(secret)	
-	# 	@words = secret.split	
-	# end
-
-	def word_splitter
-		@words = @secret.split
-	end #array
+									
+	def word_splitter(secret)	
+		@words = secret.split	
+	end
+								
+	# def word_splitter
+	# 	@words = @secret.split
+	# end #array
 
 	def characters
 		@word_characters = []
@@ -81,17 +81,17 @@ class Word_up
 		@secret_storage
 	end # hash
 
-	 
-
-
 end
 
 
-
-
 # DRIVER CODE 
-new = Word_up.new
-# new.word_splitter(@secret) #Why does this evaluate to a nilClass?
-new.word_splitter
-new.characters
-new.words_store
+
+new = Word_up.new	
+new.methods
+new.word_splitter(new.secret) 
+									
+new
+
+# new.word_splitter
+# new.characters
+# new.words_store
