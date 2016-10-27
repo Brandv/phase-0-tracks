@@ -5,6 +5,7 @@ class Dancer
 		@name = name
 		@age = age
 		@pants = "grey"
+		@card_list = []
 	end
 
 	def pirouette
@@ -17,17 +18,17 @@ class Dancer
 
 	def queue_dance_with(partner)
 		@name = partner
+		@card_list << @name
 	end
 
 	def card
-		card_list = []
-		card_list << @name	#tried for about an hour to get it to push another value, but it keeps overwritting and I just can't figure out why.
 		card_list
 	end
 
 	def begin_next_dance
-		"Now dancing with #{@card_list[0]}."	#card_list[0] should be "Mikhail Baryshnikov"
 
+		"Now dancing with #{@card_list.slice!(0)}."	#card_list[0] should be "Mikhail Baryshnikov"
+		
 	end
 
 	def pants(color)
