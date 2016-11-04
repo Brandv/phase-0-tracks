@@ -1,0 +1,36 @@
+select * from reviews
+inner join users 
+on reviews.user_id = users.id
+inner join businesses
+on reviews.business_id = businesses.id;
+
+ID          stars       comment      business_id  user_id     ID          first_name  last_name   ID          Name
+----------  ----------  -----------  -----------  ----------  ----------  ----------  ----------  ----------  ----------
+1           5           Great food!  1            1           1           Bradford    Pitt        1           Lotus Yoga
+2           2           worm in the  2            2           2           Mandy       Kaling      2           Amir's Tow
+3           4           Good food.   3            3           3           Holly       Berry       3           Sushi Worl
+4           1           Waitress wo  3            4           4           Denzel      George      3           Sushi Worl
+
+select users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment from reviews
+inner join users 
+on reviews.user_id = users.id
+inner join businesses
+on reviews.business_id = businesses.id;
+
+first_name  last_name   Name        stars       comment
+----------  ----------  ----------  ----------  -----------
+Bradford    Pitt        Lotus Yoga  5           Great food!
+Mandy       Kaling      Amir's Tow  2           worm in the
+Holly       Berry       Sushi Worl  4           Good food.
+Denzel      George      Sushi Worl  1           Waitress wo
+
+select users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment from reviews
+inner join users 
+on reviews.user_id = users.id
+inner join businesses
+on reviews.business_id = businesses.id
+where businesses.id = 1;
+
+first_name  last_name   Name        stars       comment
+----------  ----------  ----------  ----------  -----------
+Bradford    Pitt        Lotus Yoga  5           Great food!
