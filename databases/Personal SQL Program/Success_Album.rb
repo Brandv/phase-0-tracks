@@ -12,7 +12,6 @@ require "sqlite3"
 db = SQLite3::Database.new("success_album.db")
 db.results_as_hash = true
 
-
 #create table
 db.execute(<<-table
 	CREATE TABLE IF NOT EXISTS Success(
@@ -34,33 +33,6 @@ db.execute(<<-table
 	)
 table
 )
-
-def user_query
-puts "What would you like to do?"
-puts "[1] Log a new success."
-puts "[2] Remember a past success."
-puts "[3] Modify a past success."
-puts "[4] Exit your Success Album"
-end
-
-# def selection(db, selection)
-# 	case selection 
-# 	when 1 then puts "To add a success, please give the following information:"
-# 		add_success(db, date, category, description, exceptional)
-# 	when 2 then puts "Which successes do you want to remember?"
-# 		puts "[1] All successes"
-# 		puts "[2] Success by category"
-# 		puts "[3] Successes by importance"
-# 		success_sort = gets.chomp.to_i
-# 		if success_sort == 1
-# 			db.execute(SELECT * FROM success).each do |success|
-# 				puts "On #{"date"} I #{description}."
-# 			end
-# 		end
-# 	# when 3 then modify_success	
-# 	# when 4 then break
-# 	end
-# end
 
 def date
 	puts "Date (yyyy-mm-dd format)" 
@@ -100,38 +72,68 @@ def exceptional
 	success_exceptional
 end
 
+def user_query
+puts "What would you like to do?"
+puts "[1] Log a new success."
+puts "[2] Remember a past success."
+puts "[3] Modify a past success."
+puts "[4] Exit your Success Album"
+end
 
-
-def looper(selection, selection_method)
-	input = ""
-	loop do 
-		selection_method
-		puts "Would you like to do now?"
+def selection(db, selection)
+	case selection 
+	when 1 then puts "To add a success, please give the following information:"
+		add_success(db, date, category, description, exceptional)
+	# when 2 then puts "Which successes do you want to remember?"
+	# 	puts "[1] All successes"
+	# 	puts "[2] Success by category"
+	# 	puts "[3] Successes by importance"
+	# 	success_sort = gets.chomp.to_i
+	# 	if success_sort == 1
+	# 		db.execute(SELECT * FROM success).each do |success|
+	# 			puts "On #{"date"} I #{description}."
+	# 		end
+	# 	end
+	when 3 then puts "What is the date of the success you want to modify? (yyyy-mm-dd)"
+		change_date  = gets.chomp
+		puts "What do you want to change?"
+		puts "Date, Category, Description, or Exceptional?"
+		change_column = gets.chomp
+		puts "What is the new value?"
+		new_value = gets.chomp
+		modify_success(db, change_column, change_date, new_value)
+	# when 4 then break
 	end
 end
 
-# print db.execute("select * from success")
-#add rows
+
+# add rows
 def add_success(db, success_date, success_category, success_description, success_exceptional)
-	db.execute("INSERT INTO Success (Date, Category, Description, Exceptional) values (?, ?, ?, ?)", [success_date, success_category, success_description, success_exceptional]
+	db.execute("INSERT INTO Success (Date, Category, Description, Exceptional) VALUES (?, ?, ?, ?)", [success_date, success_category, success_description, success_exceptional]
 	)
 end
 
-
+# recall row --Need help with this function
 def remember_success(db, sort)
 	puts "All of them?"
-	print db.execute("select date, description from success")
+	print db.execute("SELECT date, description FROM success")
 
+end
+
+# modify row --Did my best to follow rubydocs but still doesn't work 
+# (http://sqlite-ruby.rubyforge.org/sqlite3/faq.html#538670816)
+def modify_success(db, change_column, change_date, new_value)
+	db.execute("UPDATE success SET ? = ? WHERE Date = ?", change_column, new_value, change_date)
 end
 
 # USER INTERFACE
-# puts "Welcome to your Success Album."
-# user_query
-# input = gets.chomp.to_i
-# selection(db, input)
-
-print db.execute("select * from success").each do |success|
-	puts "#{success["Date"]}"
-end
-# puts "To add another success, please give the following information:"
+puts "Welcome to your Success Album."
+exit = ""
+until exit == 4
+user_query
+input = gets.chomp.to_i
+selection(db, input)
+exit = input
+end 
+puts "\n Success is a habit, not an act. Keep logging."
 
