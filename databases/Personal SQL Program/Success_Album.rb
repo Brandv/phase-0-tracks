@@ -33,7 +33,7 @@ db.execute(<<-table
 	)
 table
 )
-
+ 
 def date
 	puts "Date (yyyy-mm-dd format)" 
 	success_date = gets.chomp
