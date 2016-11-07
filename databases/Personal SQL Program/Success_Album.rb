@@ -10,7 +10,7 @@ require "sqlite3"
 # BUSINESS LOGIC
 #create db
 db = SQLite3::Database.new("success_album.db")
-# db.results_as_hash = true
+db.results_as_hash = true
 
 
 #create table
@@ -43,17 +43,24 @@ puts "[3] Modify a past success."
 puts "[4] Exit your Success Album"
 end
 
-def selection(db, selection)
-	case selection 
-	when 1 then puts "To add a success, please give the following information:"
-		add_success(db, date, category, description, exceptional)
-	when 2 then puts "Which successes do you want to remember?"
-
-		remember_success
-	# when 3 then modify_success	
-	# when 4 then break
-	end
-end
+# def selection(db, selection)
+# 	case selection 
+# 	when 1 then puts "To add a success, please give the following information:"
+# 		add_success(db, date, category, description, exceptional)
+# 	when 2 then puts "Which successes do you want to remember?"
+# 		puts "[1] All successes"
+# 		puts "[2] Success by category"
+# 		puts "[3] Successes by importance"
+# 		success_sort = gets.chomp.to_i
+# 		if success_sort == 1
+# 			db.execute(SELECT * FROM success).each do |success|
+# 				puts "On #{"date"} I #{description}."
+# 			end
+# 		end
+# 	# when 3 then modify_success	
+# 	# when 4 then break
+# 	end
+# end
 
 def date
 	puts "Date (yyyy-mm-dd format)" 
@@ -61,7 +68,6 @@ def date
 end
 
 def category
-	puts "Which category does this success fit into?"
 	puts "[1] Incorporating a new concept"
 	puts "[2] Resolving an unexpected bug or error"
 	puts "[3] Non-technical success"
@@ -119,13 +125,13 @@ def remember_success(db, sort)
 end
 
 # USER INTERFACE
-puts "Welcome to your Success Album."
-
+# puts "Welcome to your Success Album."
 # user_query
 # input = gets.chomp.to_i
 # selection(db, input)
-k = remember_success(db,"*")
-p k.class
 
+print db.execute("select * from success").each do |success|
+	puts "#{success["Date"]}"
+end
 # puts "To add another success, please give the following information:"
 
