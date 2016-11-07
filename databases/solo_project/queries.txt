@@ -1,0 +1,45 @@
+select * from "remarkable reptiles";
+update "remarkable reptiles" set "name" = "Giant Tortoise" where "name" = "Lute Turtle";
+select * from "remarkable reptiles", "order" where "remarkable reptiles".order_id = "order".id;
+select "remarkable reptiles".name, "order".name from "remarkable reptiles" join "order" on "remarkable reptiles".order_id = "order".id;
+delete from "remarkable reptiles" where "venomous?" = 0;
+
+
+The three major types of joins are Cross, Inner, and Outer.
+
+Cross join:  select * from "remarkable reptiles" cross join "order";
+8|Inland Taipan|3|1|1|Crocodilia
+8|Inland Taipan|3|1|2|Sphenodontia
+8|Inland Taipan|3|1|3|Squamata
+8|Inland Taipan|3|1|4|Testudines
+9|Frilled-neck Lizard|3|0|1|Crocodilia
+9|Frilled-neck Lizard|3|0|2|Sphenodontia
+9|Frilled-neck Lizard|3|0|3|Squamata
+9|Frilled-neck Lizard|3|0|4|Testudines
+10|Lute Turtle|4|0|1|Crocodilia
+10|Lute Turtle|4|0|2|Sphenodontia
+10|Lute Turtle|4|0|3|Squamata
+10|Lute Turtle|4|0|4|Testudines
+11|Gharial|1|0|1|Crocodilia
+11|Gharial|1|0|2|Sphenodontia
+11|Gharial|1|0|3|Squamata
+11|Gharial|1|0|4|Testudines
+12|Inland Taipan|3|1|1|Crocodilia
+12|Inland Taipan|3|1|2|Sphenodontia
+12|Inland Taipan|3|1|3|Squamata
+12|Inland Taipan|3|1|4|Testudines
+
+Inner join: select * from "remarkable reptiles" inner join "order" on "remarkable reptiles".order_id = "order".id;
+8|Inland Taipan|3|1|3|Squamata
+9|Frilled-neck Lizard|3|0|3|Squamata
+10|Lute Turtle|4|0|4|Testudines
+11|Gharial|1|0|1|Crocodilia
+12|Inland Taipan|3|1|3|Squamata
+
+Outer join: select * from "remarkable reptiles" left outer join "order" on "remarkable reptiles".order_id = "order".id;
+8|Inland Taipan|3|1|3|Squamata
+9|Frilled-neck Lizard|3|0|3|Squamata
+10|Lute Turtle|4|0|4|Testudines
+11|Gharial|1|0|1|Crocodilia
+12|Inland Taipan|3|1|3|Squamata
+Other outer joins are not supported.

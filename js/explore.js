@@ -11,7 +11,7 @@ log reverse_string to console.
 
 function reverse(str) {
 	var reverse_string = "";
-	for (var i = str.length - 1; !(i < 0); i--) {
+	for (var i = str.length - 1; i >= 0; i--) {
 		reverse_string += str[i];
 
 	}
