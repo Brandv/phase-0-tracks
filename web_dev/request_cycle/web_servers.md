@@ -1,0 +1,5 @@
+One of the central philosophies of Unix, and by extension linux, is that the user knows what he or she is doing. They do not baby proof their OS to protect the user, as this would also prevent them for having the freedom to be innovative. 
+
+A VPS is a service sold to create a section of memory designed to act as a computer, hosted on a more powerful host server. This virtual machine runs a copy of an OS that users can access as needed. They have the advantage of being cheaper than dedicated servers but still have the independent performance and security that shared servers lack. You also get root access to configure the server any way you wish.
+
+Root is a default account that has access to all commands and files on an OS. You do not want to run programs from root because for one, you would not be able to tell who ran the program if they are being run as root, unlike if they were being run by a user via sudo. This also makes it easier for audit. But also switching to a user without full root access limits the risk of damage that one can do. 
