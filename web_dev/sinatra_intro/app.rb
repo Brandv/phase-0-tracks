@@ -69,17 +69,20 @@ get "/:first&:second" do
 
 end
 
+get "/older" do
+  if params[:older_than]
+    older_students = db.execute("SELECT * FROM students WHERE age > ?", params[:older_than])
+    older_students.to_s
+  else
+    "Everyone is younger than that!"
+  end
+
+=begin 
+Hard to search the difference between web frameworks and web app libraries. RoR is a framework, as is Volt, Ramaze, Camping.
+
+Sinatra can also use MongoDB, Postgresql, and probably some others? This is harder to google than you'd think.
+
+ A web stack is the necessary software for web development. All stacks contain an OS, development language, database, and web server.
 
 
-
-# get '/students/:id' do
-#   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
-#    response = ""
-#   student.each do |student|
-#     # response << "ID: #{student['id']}<br>"
-#     response << "Name: #{student['name']}<br>"
-#     response << "Age: #{student['age']}<br>"
-#     response << "Campus: #{student['campus']}<br><br>"
-#   end
-#   response
-# end
+end
