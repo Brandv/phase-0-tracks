@@ -1,3 +1,8 @@
+# Query Parameter: Route where parameters are located in the query string (in the URL to the right of the ?. Written in key/value pairs. Ex: www.google.com/?key=value&key=value)
+# Route Parameter: Route where parameter value is entered after "/". Ex: .com/route/[parameter value]
+# Parameters are case sensitive.
+
+
 # require gems
 require 'sinatra'
 require 'sinatra/reloader'
@@ -46,12 +51,22 @@ get '/students/:id' do
   student.to_s
 end
 
-get "/contact/:address" do
-  "Our address is #{params[:address]}."
+get "/contact/:Address/:house" do
+  "Our address is #{params[:Address]} and I live in a #{params[:house]}."
 end
 
 get "/great_job" do
-  name = db.execute("")
+  if params[:name]
+    "Good job, #{params[:name]}!"
+  else
+    "Good job!"
+  end
+end
+
+get "/:first&:second" do
+  x = params[:first].to_i + params[:second].to_i
+  x.to_s
+
 end
 
 
