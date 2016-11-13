@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campuses Table</title>
+</head>
+<body>
+  <h1>Campuses Table</h1>
+  <table>
+    <tr>
+      <th>Campus</th>
+    </tr>
+    <% @campuses.each do |campus| %>
+      <tr>
+        <td><%= campus['campus'] %></td>
+      </tr>
+    <% end %> 
+  </table>
+</body>
+</html>
