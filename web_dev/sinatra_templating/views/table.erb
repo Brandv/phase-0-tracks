@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Table</title>
+</head>
+<body>
+	<h1>Student Table</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Age</th>
+			<th>Campus</th>
+		</tr>
+		<% @students.each do |student| %>
+			<tr>
+				<td><%= student['name'] %></td>
+				<td><%= student['age'] %></td>
+				<td><%= student['campus'] %></td>
+			</tr>
+		<% end %> 
+	</table>
+</body>
+</html>
